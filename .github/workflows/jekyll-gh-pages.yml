@@ -27,7 +27,7 @@ jobs:
           version: 8
           run_install: false
       - name: Install, build, and upload your site
-        uses: withastro/action@v0
+        uses: withastro/action@v2
 
   deploy:
     needs: build
