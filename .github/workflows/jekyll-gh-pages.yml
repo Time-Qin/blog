@@ -18,6 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - run: npm set registry=https://registry.npmmirror.com
       - name: Checkout your repository using git
         uses: actions/checkout@v3
       - name: Install, build, and upload your site
