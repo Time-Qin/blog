@@ -9,6 +9,29 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.block{
+				position: relative;
+				margin:100px auto;
+				width:224px;
+				height:224px;
+
+			}
+			img{
+				position:absolute;
+				left:0;
+				top:0;
+				transition:all 1s;
+			}
+			.block img:first-child{
+				z-index:1;
+				backface-visibility:hidden;
+			}
+			.block:hover img{
+				transform:rotateY(180deg);
+			}
+
+		</style>
 	</head>
 	<body>
 		<Header />
@@ -44,6 +67,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					>astro-blog-template
 				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
 			</p>
+			<div class="block">
+				<img width="200" height="200" src="https://picsum.photos/200/200" alt="正面">
+				<img width="200" height="200" src="https://picsum.photos/300/300" alt="反面">
+			</div>
 		</main>
 		<Footer />
 	</body>
