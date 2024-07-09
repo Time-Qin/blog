@@ -1,0 +1,16 @@
+---
+import Layout from "./BlogPost.astro";
+import TagLink from "../components/TagLink.astro";
+const { frontmatter } = Astro.props;
+---
+
+
+<Layout title={frontmatter.title}
+description={frontmatter.description}
+pubDate={new Date(frontmatter.pubDate)}
+heroImage={frontmatter.image.url}
+>
+    <p>Written by: {frontmatter.author}</p>
+    <TagLink tags={frontmatter.tags}/>
+    <slot />
+</Layout>

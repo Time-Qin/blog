@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/BlogPost.astro";
+import TagLink from "../../components/TagLink.astro";
+const pageTitle = "Tag Index";
+const allPosts = await Astro.glob("../posts/*.md");
+const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+---
+
+<Layout
+  title={pageTitle}
+  description="Lorem ipsum dolor sit amet"
+  pubDate={new Date("August 08 2021")}
+>
+  <TagLink tags={tags}/>
+</Layout>

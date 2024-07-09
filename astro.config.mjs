@@ -6,6 +6,6 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://time-qin.github.io',
+  site: 'https://kingup.netlify.app',
   integrations: [mdx(), sitemap(), react(), tailwind()]
 });
