@@ -5,27 +5,55 @@
  */
 
 :root {
-	--accent: #2337ff;
+	--accent: #0085f2;
+	--accent-bg: rgba(0,133,242,0.1);
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
+	--gray-dark: 27, 27, 27;
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
 }
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-color: #fafafa;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background: rgb(191, 191, 191);
+}
+
+/* 较新的 API*/
+body {
+	scrollbar-width: thin;
+	scrollbar-color: #718096 #edf2f7;
+}
+
 
 html.dark {
 	background-color: rgba(5, 7, 9, 0.8);
 	color: rgb(255, 255, 255);
 }
 
-html.dark body{
-	background:transparent;
+html.dark body {
+	background: transparent;
 	--black: 133, 144, 160;
 }
-
+html.dark body code{
+	color: #333;
+}
 .dark .nav-links a {
 	color: #fff;
 }
@@ -57,7 +85,7 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 1.7;
 }
 
@@ -97,6 +125,12 @@ h4 {
 
 h5 {
 	font-size: 1.25em;
+}
+
+.content h3,h4 {
+  color: rgb(var(--black));
+  border-left: 4px solid #ef4444;
+  padding: 0 0 0 20px;
 }
 
 strong,
@@ -146,6 +180,7 @@ code {
 }
 
 pre {
+	font-size: 16px;
 	padding: 1.5em;
 	border-radius: 8px;
 }
@@ -155,10 +190,11 @@ pre>code {
 }
 
 blockquote {
+	background: var(--accent-bg);
 	border-left: 4px solid var(--accent);
 	padding: 0 0 0 20px;
 	margin: 0px;
-	font-size: 1.333em;
+	font-size: 16px;
 }
 
 hr {
@@ -168,7 +204,7 @@ hr {
 
 @media (max-width: 720px) {
 	body {
-		font-size: 18px;
+		font-size: 14px;
 	}
 
 	main {
