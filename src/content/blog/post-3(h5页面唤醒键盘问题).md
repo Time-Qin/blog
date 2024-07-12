@@ -27,7 +27,7 @@ tags: ["web", "ts",'h5']
 
 目前这种情况只在安卓浏览器中出现
 
-<img src="../../../public/img/lQDPJxOQb2T5_3PNBP_NAj-wV6AV9j91hiQGewY9_IyAAA_575_1279.jpg" style="zoom:50%;" />
+<img src="/img/lQDPJxOQb2T5_3PNBP_NAj-wV6AV9j91hiQGewY9_IyAAA_575_1279.jpg" style="zoom:50%;" />
 
 那么，这个样子我们是不能接受的。
 
@@ -73,7 +73,7 @@ const onFocus = ()=>{
 
 第二步 怎样使底部浮动内容不会出现在我们的键盘上方，最简单的方法当然是直接控制浮动内容隐藏（直接添加css样式即可）
 
-<img src="../../../public/img/lQDPJwaN3ZPPH3PNBP_NAj-wletRsMZZYHcGewY9lqFGAA_575_1279.jpg" style="zoom:50%;" />
+<img src="/img/lQDPJwaN3ZPPH3PNBP_NAj-wletRsMZZYHcGewY9lqFGAA_575_1279.jpg" style="zoom:50%;" />
 <br/>
 
 ##### 二、键盘唤醒后遮挡底部输入框（仅在app内部会出现）
