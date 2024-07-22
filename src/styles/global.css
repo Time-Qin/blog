@@ -51,7 +51,7 @@ html.dark body {
 	background: transparent;
 	--black: 133, 144, 160;
 }
-html.dark body code{
+html.dark body p code,html.dark body li code{
 	color: #333;
 }
 .dark p,.dark div {
@@ -157,6 +157,18 @@ p {
 .prose p {
 	margin-bottom: 20px;
 }
+
+.prose	h1 code,
+.prose h2 code,
+.prose h3 code,
+.prose h4 code,
+.prose h5 code,
+.prose h6 code {
+	background: none;
+	color: var(--accent);
+	font-weight: 600;
+}
+
 
 textarea {
 	width: 100%;

@@ -9,7 +9,7 @@ tags: ["wxml", "ts",'miniprogram','scss']
 
 > 本文所介绍的是微信小程序自定义tabbar组件
 
-### 背景
+## 背景
 
 根据产品所说，用户反馈我们自己的小程序tabbar不够明显，产品希望可以更改tabbar的背景颜色。
 
@@ -17,20 +17,20 @@ tags: ["wxml", "ts",'miniprogram','scss']
 
 虽然需求可以推掉，但是咱们开发的原则不能变---可以不做，但不能不会。
 
-### 准备工作
+## 准备工作
 
 先看看微信小程序官方对自定义tabbar的介绍
 
 > [基础能力 / 自定义 tabBar (qq.com)](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/custom-tabbar.html)
 
-##### 总结一下流程：<br/>
+### 总结一下流程：<br/>
 1. 配置信息
 2. 添加 tabBar 代码文件
 3. 编写 tabBar 代码
 
 <br/>
 
-### 配置信息
+## 配置信息
 
 在小程序项目下 `app.json` 文件中的 `tabBar` 项指定 `custom` 字段，保留`usingComponents`项。
 
@@ -62,7 +62,7 @@ tags: ["wxml", "ts",'miniprogram','scss']
 ```
 <br/>
 
-### 添加 tabBar 代码文件
+## 添加 tabBar 代码文件
 
 在项目根目录下新增文件夹custom-tab-bar(该文件夹需要与components文件夹在同一层级),右键新建component（在微信开发者工具中操作）
 
@@ -76,7 +76,7 @@ tags: ["wxml", "ts",'miniprogram','scss']
 
 如此 自定义tabbar便可替代原生tabbar
 
-### 编写 tabBar 代码
+## 编写 tabBar 代码
 
 那就让我们开始吧 <br/>
 ts代码:
@@ -188,7 +188,7 @@ scss代码:
 ```
 <br/>
 
-### 使用tabbar
+## 使用tabbar
 
 根据微信官方文档描述，每个 tab 页面 tabBar 的实例是不同的：
 
@@ -219,12 +219,12 @@ Page({
 
 <br/>
 
-### tips
+## tips
 
 - 自定义tabbar是有层级的，当页面弹窗层级超过`z-index:99999`时便可以覆盖在tabbar层级之上。<br/>
 - 关于自定义tabbar切换时闪烁问题，其实它只存在于启动小程序后第一次切换未加载的tabbar页面时会出现，也就是说它其实是tabbar组件在页面加载时创建当前页面tabbar实例产生的
 
-### 注意事项
+## 注意事项
 
 - 自定义样式需要符合设计规范: 在自定义tabbar切换时使用强制登录逻辑且不等了就不能切换，导致小程序被官方警告责令整改。
 - 处理页面切换的逻辑：在自定义tabbar中，需要处理页面切换的逻辑，必须使用 wx.switchTab() 方法实现页面切换（wx.redirectTo() 方法会新开一个页面）

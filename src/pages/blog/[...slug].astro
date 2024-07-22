@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
 import TagLink from "../../components/TagLink.astro";
+import Catalog from "../../components/Catalog.tsx";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -12,7 +13,7 @@ export async function getStaticPaths() {
 }
 type Props = CollectionEntry<"blog">;
 
-const { data, render } = Astro.props;
+const { data, render } = Astro.props ;
 const { Content } = await render();
 ---
 
@@ -22,8 +23,9 @@ const { Content } = await render();
       <p>作者: {data.author}</p>
       <TagLink tags={data.tags ? data.tags : []} />
     </div>
-    <Content />
+    <Content/>
   </div>
+  <Catalog client:only="react"/>
 </BlogPost>
 <style is:inline>
   .content-header {
@@ -36,3 +38,4 @@ const { Content } = await render();
     white-space: nowrap;
   }
 </style>
+../../components/Catalog../../components/Catalog.tsx

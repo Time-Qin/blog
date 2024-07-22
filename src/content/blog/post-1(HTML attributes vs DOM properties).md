@@ -36,12 +36,12 @@ tags: ["html", "js","web"]
 <br/>
 大多数时候，这些区别并不重要。我认为开发人员能够在不考虑属性和属性之间的差异的情况下拥有一个长期而愉快的职业生涯是件好事。但是，如果您需要在较低的层次上深入研究 DOM，了解这一点会很有帮助。即使你觉得你知道其中的区别，也许我会提到一些你没有考虑到的细节。那我们就开吃吧。
 
-### 主要区别
+## 主要区别
 
 在我们进入有趣的话题之前，让我们先来看看一些技术上的差异
 <br/>
 
-#### HTML 序列化
+### HTML 序列化
 `Attributes`序列化为 HTML，而`property`不序列化.
 <br/>
 
@@ -58,7 +58,7 @@ console.log(div.outerHTML); // <div foo="bar"></div>
 因此，当您查看浏览器开发工具中的元素面板时，您只能看到元素上的属性，而不能看到属性。
 <br/>
 
-#### value类型
+### value类型
 为了在序列化格式下工作，`attributes`值总是字符串，而`property`可以是任何类型
 <br/>
 
@@ -76,7 +76,7 @@ console.log(div.hello); // { foo: 'bar' }
 ```
 <br/>
 
-#### 属性名区分大小写
+### 属性名区分大小写
 `attributes`名称不区分大小写，而`property`名称区分大小写
 <br/>
 
@@ -100,7 +100,7 @@ console.log(div.hello); // { foo: 'bar' }
 但是，`attributes`值是区分大小写的。
 好吧，事情开始变得模糊了:
 
-### 内容映射
+## 内容映射
 看看这个:
 ```html
 <div id="foo"></div>
@@ -129,7 +129,7 @@ console.log(div.hello); // { foo: 'bar' }
 
 但是有些反射器更加复杂
 
-#### 名称不同
+### 名称不同
 这是相对次要的，但是有时`property`与它所映射的`attribute`有不同的名称。
 
 在某些情况下，它只是添加您期望从`property`获得的小写property:
@@ -144,7 +144,7 @@ console.log(div.hello); // { foo: 'bar' }
 
 <br/>
 
-#### 验证、类型强制和默认值
+### 验证、类型强制和默认值
 `property`带有验证和默认值，而`attributes`没有
 ```jsx
 const input = document.createElement('input');
@@ -188,7 +188,7 @@ console.log(input.type); // 'text'
 
 像 `img.height` 这样的属性将属性值强制为一个数字。Setter 将传入值转换为数字，并将负值视为0
 
-#### 输入的字段`value`
+### 输入的字段`value`
 `value`是一种乐趣。有一个 `value`property和一个 `value` attribute。但是，`value`property不映射 `value` attribute。相反，`defaultValue`property映射 `value` attribute。
 
 我知道，我知道。
@@ -255,7 +255,7 @@ class HTMLInputElement extends HTMLElement {
 
 如果 `value` attribute被命名为 `defaultvalue`，那么这样做会更有意义。
 
-### 属性应该用于配置
+## 属性应该用于配置
 
 在我看来，attributes应该用于配置，而properties可以包含状态。我还认为 light-DOM 树应该只有一个所有者。
 
@@ -281,21 +281,21 @@ class HTMLInputElement extends HTMLElement {
 
 我想`contenteditable`也违反了合同，但是... 好吧... 这是一个选择，在很多破坏。
 
-### 框架如何处理这种差异
+## 框架如何处理这种差异
 回到之前的例子:
 ```html
 <input className="…" type="…" aria-label="…" value="…" />
 ```
 框架如何处理这个问题？
 
-#### Preact and VueJS
+### Preact and VueJS
 除了一组预定义的支持attributes的情况之外，如果 `proName in element`，那么它们将把prop设置为property，否则它们将设置一个attribute。基本上，他们更喜欢properties而不是attributes。它们的 render-to-string 方法则相反，并忽略仅property的内容。
 <br/>
 <a href="https://github.com/preactjs/preact/blob/aa95aa924dd5fe28798f2712acdabdc2e9fa38c9/src/diff/props.js#L37" target="_blank">setProperty in Preact.</a>
 <br/>
 <a href="https://github.com/vuejs/core/blob/958286e3f050dc707ad1af293e91bfb190bdb191/packages/runtime-dom/src/patchProp.ts#L69" target="_blank">shouldSetAsProp in VueJS.</a>
 
-#### React
+### React
 
 React的作法恰恰相反。除了一组预定义的偏好properties的情况之外，它们还将设置一个attribute。这使得它们的从渲染到字符串的方法在逻辑上非常相似。
 
@@ -305,7 +305,7 @@ React的作法恰恰相反。除了一组预定义的偏好properties的情况�
 <br/>
 <a href="https://github.com/facebook/react/blob/699d03ce1a175442fe3443e1d1bed14f14e9c197/packages/react-dom-bindings/src/client/ReactDOMComponent.js#L349" target="_blank">setProp in React.</a>
 
-#### lit-html
+### lit-html
 Lit 的做法有些不同:
 
 ```html

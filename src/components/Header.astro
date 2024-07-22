@@ -46,7 +46,14 @@ import { SITE_TITLE } from "../consts";
   </nav>
 </header>
 <style>
+  html.dark header {
+    background: rgb(var(--gray-dark));
+  }
   header {
+    background: rgb(var(--gray-light));
+    position: sticky;
+    top: 0;
+    width: 100%;
     margin: 0;
     padding: 0 1em;
     box-shadow: 0 2px 8px rgba(var(--black), 5%);
