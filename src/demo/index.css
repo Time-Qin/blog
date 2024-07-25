@@ -1,0 +1,33 @@
+@keyframes waterAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.wave {
+    position: absolute;
+    left: -50px;
+    top: 200px;
+    width: 400px;
+    height: 400px;
+    background: rgb(255, 154, 1);
+    border-radius: 38%;
+    animation: waterAnimation 3s linear infinite;
+
+}
+
+::-webkit-progress-value {
+    background-color: #fff;
+}
+
+::-webkit-progress-bar {
+    background-color: orange;
+}

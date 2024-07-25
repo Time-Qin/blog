@@ -9,7 +9,7 @@ export default function Catalog() {
   });
 
   return (
-    <div className="fixed top-[78px] right-[240px] p-[20px] shadow">
+    <div className="hidden fixed top-[78px] right-[8%] p-[20px] shadow 2xl:block ">
       <div>目录</div>
       <ul>
         {nodes?.map((node,index) => {

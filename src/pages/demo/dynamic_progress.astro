@@ -1,0 +1,13 @@
+---
+import DynamicProgressDemo from "../../demo/DynamicProgress";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "动态进度条";
+---
+
+<Layout
+  title={pageTitle}
+  description="球形进度条，支持动画"
+  pubDate={new Date("2024-07-25")}
+>
+  <DynamicProgressDemo client:only="react" />
+</Layout>
