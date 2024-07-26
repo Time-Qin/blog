@@ -31,3 +31,9 @@
 ::-webkit-progress-bar {
     background-color: orange;
 }
+
+#reflection-clock .clock-box{
+    position: relative;
+    margin: 0 5px;
+    -webkit-box-reflect: below 1px linear-gradient(transparent,#0004);
+}
