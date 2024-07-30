@@ -1,0 +1,13 @@
+---
+import GobangDemo from "../../demo/Gobang";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "canvas实现五子棋";
+---
+
+<Layout
+  title={pageTitle}
+  description="五子棋游戏用canvas实现"
+  pubDate={new Date("2024-07-30")}
+>
+  <GobangDemo client:only="react" />
+</Layout>
