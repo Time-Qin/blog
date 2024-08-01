@@ -7,19 +7,19 @@ author: "Ekko"
 tags: ["web", "js", "miniprogram", "vue", "echarts"]
 ---
 
-### 简介
+## 简介
 
 本文是记录在`uniApp`中使用`echarts`时为解决组件兼容问题而编写的扩展组件
 
-### 背景
+## 背景
 
 最近产品提了一个需要使用`echarts`画图且小程序和 h5 都要实现；对于`echarts`我并不陌生，但是在小程序中用`echarts`还是第一次。看了许多文档，都不太满意，于是想着自己写一个本地组件试试。
 
-### 主要内容
+## 主要内容
 
 先区分小程序组件和 H5 组件，将两个组件的逻辑区分开，确保不同编译模式下编译的组件代码是我需要的。
 
-#### H5
+### H5
 
 第一步先安装`echarts`
 
@@ -79,7 +79,7 @@ onMounted(() => {
 
 <br/>
 
-#### **微信小程序**
+### **微信小程序**
 
 去 [lime-echart ](https://gitee.com/liangei/lime-echart/tree/master/components/l-echart)找到`canvas.js`、`l-echart.vue`和`utils.js`文件
 
@@ -285,6 +285,6 @@ const wxEchartInit = () => {
 
 <br/>
 
-### 总结
+## 总结
 
 像我们这样实现 echarts 图，在小程序打包的时候所占用的代码体积是比较小的，没有太多的负担，而且在开发的时候也不用再考虑编译环境，可以一个组件两端通用，提高了我们的开发效率。在小程序中使用 echarts 有很多的限制，目前我们只是用了很简单的应用，如果需要在小程序中使用大量的图表，为了用户体验和小程序的性能还是建议使用 webview 来实现。
