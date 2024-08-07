@@ -1,0 +1,13 @@
+---
+import ImageCaptionsDemo from "../../demo/ImageCaptions";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "图片标注工具";
+---
+
+<Layout
+  title={pageTitle}
+  description="图片标注工具canvas实现"
+  pubDate={new Date("2024-08-05")}
+>
+  <ImageCaptionsDemo client:only="react" />
+</Layout>
