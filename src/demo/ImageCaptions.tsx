@@ -24,6 +24,13 @@ type DrawingSign = {
 
 const ImageCaptions = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [image, setImage] = useState<{
+    src: string;
+    width: number;
+    height: number;
+  } | null>(null);
+  const [name, setName] = useState<string | null>(null);
+  const [blobSrc, setBlobSrc] = useState<string | null>(null);
   let scale = 1,
     scaleX = 0,
     scaleY = 0,
@@ -63,22 +70,31 @@ const ImageCaptions = () => {
   img.src = src;
 
   const drawImage = () => {
-    img.onload = () => {
-      draw();
-    };
+    if (image) {
+      img.src = image.src;
+      img.onload = () => {
+        draw();
+      };
+    } else {
+      img.onload = () => {
+        draw();
+      };
+    }
   };
 
   const draw = () => {
     console.log("draw");
     if (canvasRef.current) {
+      const _width = image?.width || width;
+      const _height = image?.height || height;
       const ctx = canvasRef.current.getContext("2d")!;
-      ctx.clearRect(0, 0, width, height);
+      ctx.clearRect(0, 0, _width, _height);
       ctx.save();
       ctx.translate(scaleX, scaleY);
       ctx.scale(scale, scale);
       ctx.translate(-scaleX, -scaleY);
       ctx.translate(translateX, translateY);
-      ctx.drawImage(img, 0, 0, width, height);
+      ctx.drawImage(img, 0, 0, _width, _height);
       signs.forEach((r) => {
         ctx.strokeStyle = r.isEditing
           ? "rgba(102, 205, 204, 1)"
@@ -91,7 +107,7 @@ const ImageCaptions = () => {
           ctx.translate(-(r.x + r.width / 2), -(r.y + r.height / 2));
         }
         ctx.strokeRect(r.x, r.y, r.width, r.height);
-       
+
         if (r.isEditing) {
           drawEditor(r);
         }
@@ -106,6 +122,11 @@ const ImageCaptions = () => {
         );
       }
       ctx.restore();
+
+      if (image) {
+        const url = canvasRef.current.toDataURL("image/png", 1)
+        setBlobSrc(url)
+      }
     }
   };
 
@@ -189,7 +210,7 @@ const ImageCaptions = () => {
       const { x, y } = computexy(_x, _y);
 
       if (editSign) {
-        const editor:any = poInEditor({ x, y }, editSign);
+        const editor: any = poInEditor({ x, y }, editSign);
         if (editor) {
           //执行旋转
           if (editor.type === "rotRect") {
@@ -320,6 +341,9 @@ const ImageCaptions = () => {
     }
   };
   const onPointerUP = (event: PointerEvent) => {
+    if(rotatingRect){
+      rotatingRect = null;
+    }
     if (dragingEditor) {
       dragingEditor = null;
       startEditSgin = null;
@@ -340,7 +364,7 @@ const ImageCaptions = () => {
           x: Math.min(sginStartX, event.offsetX),
           y: Math.min(sginStartY, event.offsetY),
           width,
-          height
+          height,
         });
         signs.push(newrect as any);
         draw();
@@ -528,6 +552,14 @@ const ImageCaptions = () => {
     return relativeAngle;
   };
 
+  const onDelete = (event:KeyboardEvent)=>{
+    if(editSign&&event.code==='Delete'){
+      const list = signs.filter(s=>s!==editSign)
+      signs=list
+      draw()
+    }
+  }
+
   useEffect(() => {
     if (canvasRef.current) {
       const ctx = canvasRef.current.getContext("2d");
@@ -555,6 +587,9 @@ const ImageCaptions = () => {
       canvasRef.current.addEventListener("pointerup", onPointerUP, {
         passive: false,
       });
+      document.addEventListener("keydown", onDelete, {
+        passive: false,
+      });
       return () => {
         document.removeEventListener("wheel", onWheel);
         canvasRef.current?.removeEventListener("mousedown", onMouseDown);
@@ -563,19 +598,102 @@ const ImageCaptions = () => {
         canvasRef.current?.removeEventListener("pointerdown", onPointerDown);
         canvasRef.current?.removeEventListener("pointermove", onPointerMove);
         canvasRef.current?.removeEventListener("pointerup", onPointerUP);
+        document.removeEventListener("keydown", onDelete);
       };
     }
-  }, []);
+  }, [image]);
+  const upLoad = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      console.log(file, "file");
+      const [mime, ext] = file.type.split("/");
+      if (mime === "image") {
+        if (file.size >= 5242880) {
+          alert(`图片不能大于${5}M`);
+          return;
+        }
+        setName(file.name);
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.src = e.target?.result as string;
+          img.onload = () => {
+            setImage({
+              src: e.target?.result as string,
+              width: img.width,
+              height: img.height,
+            });
+          };
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  };
 
   return (
-    <div className="border-[#6cc] border-solid border-[1px] overflow-hidden">
-      <canvas
-        className="mx-auto"
-        ref={canvasRef}
-        width={width}
-        height={height}
-      ></canvas>
+    <>
+    <div>
+      <h3 className="text-[20px] text-center">图片编辑</h3>
+      <ol>
+        <li>
+          1. 按住ctrl+鼠标左键，移动图片
+        </li>
+        <li>
+          2. 按住alt+鼠标滚轮，即可放大/缩小图片
+        </li>
+        <li>
+          3. 按住alt+鼠标左键，移动鼠标，即可绘制矩形
+        </li>
+        <li>
+          4. 按住alt+鼠标左键，点击矩形，即可选中矩形
+        </li>
+        <li>
+          5. 按住alt+鼠标左键，点击矩形(长按)，移动鼠标，即可使选中矩形的矩形跟随鼠标移动
+        </li>
+        <li>
+          6. 选中矩形后 按住alt+鼠标左键，点击操作方块并拖动 即可改变矩形大小 或旋转矩形（最上方的操作方块选中后拖动可以旋转矩形）
+        </li>
+        <li>
+          7.选中矩形后 按下Delete键，即可删除矩形
+        </li>
+      </ol>
     </div>
+   <blockquote>
+    <p>
+      当前demo只能在pc端使用；且支持上传图片和保存编辑后的图片；上传的图片最大支持5MB
+    </p>
+   </blockquote>
+      <div className="py-[10px]">
+        <label className="ml-[30px]">
+          上传图片：
+          <input type="file" accept="image/*" onChange={upLoad} />
+        </label>
+      </div>
+      {image && blobSrc ? (
+        <div className="py-[10px]">
+          <label className="ml-[30px]">
+            <a href={blobSrc} download={`edito_${name}`}>下载图片</a>
+          </label>
+        </div>
+      ) : null}
+      {/* {image && (
+        <img
+          src={image.src}
+          width={image.width}
+          height={image.height}
+          alt=""
+          className="w-[100%] h-[100%] object-cover"
+        />
+      )} */}
+      <div className="border-[#6cc] border-solid border-[1px] overflow-hidden">
+        <canvas
+          className="mx-auto"
+          ref={canvasRef}
+          width={image?.width || width}
+          height={image?.height || height}
+        ></canvas>
+      </div>
+    </>
   );
 };
 
