@@ -48,15 +48,15 @@ const ImageCaptions = () => {
     editorShiftX = 0,
     editorShiftY = 0,
     signs: DrawingSign[] = [
-      {
-        x: 300,
-        y: 200,
-        width: 100,
-        height: 100,
-        isEditing: false,
-        rotatable: true,
-        rotateAngle: 20,
-      },
+      // {
+      //   x: 300,
+      //   y: 200,
+      //   width: 100,
+      //   height: 100,
+      //   isEditing: false,
+      //   rotatable: true,
+      //   rotateAngle: 20,
+      // },
     ];
 
   let drawingSign: DrawingSign | null = null;
