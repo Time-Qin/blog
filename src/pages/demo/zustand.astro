@@ -1,0 +1,13 @@
+---
+import ZustandDemo from "../../demo/Zustand.tsx";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "zustand";
+---
+
+<Layout
+  title={pageTitle}
+  description="球形进度条，支持动画"
+  pubDate={new Date("2024-08-19")}
+>
+  <ZustandDemo client:only="react" />
+</Layout>
