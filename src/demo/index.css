@@ -12,6 +12,41 @@
     }
 }
 
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes progress {
+    from {
+        stroke-dasharray: 0 1400;
+    }
+
+    to {
+        stroke-dasharray: 1257 1400;
+    }
+}
+
+
+@keyframes spin2 {
+    0% {
+        stroke-dasharray: 1, 800;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 400, 400;
+        stroke-dashoffset: -200px;
+    }
+
+    100% {
+        stroke-dasharray: 800, 1;
+        stroke-dashoffset: -800px;
+    }
+}
+
+
 .wave {
     position: absolute;
     left: -50px;
@@ -32,8 +67,46 @@
     background-color: orange;
 }
 
-#reflection-clock .clock-box{
+#reflection-clock .clock-box {
     position: relative;
     margin: 0 5px;
-    -webkit-box-reflect: below 1px linear-gradient(transparent,#0004);
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+}
+
+#svg-test .border-model {
+    border: 4px solid #6cc;
+    border-radius: 30px;
+}
+
+#svg-test .ele-code {
+    color: #85E89D;
+}
+
+#svg-test .propty-code {
+    color: #B392F0;
+}
+
+#svg-test .value-code {
+    color: #9ECBFF;
+}
+
+#svg-test .sign-code {
+    color: #E1E4E8;
+}
+
+#svg-test .spin {
+    transform-origin: center;
+    animation: spin 2s var(--easing, linear) infinite;
+}
+
+#svg-test .progress {
+    animation: progress 2s var(--easing, linear) infinite;
+    animation-direction: alternate;
+}
+
+#svg-test .spin2 {
+    transform-origin: center;
+    animation: spin2 1.5s ease-in-out infinite,
+        spin 2s linear infinite;
+    animation-direction: alternate;
 }

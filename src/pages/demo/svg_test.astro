@@ -1,0 +1,13 @@
+---
+import SvgDemo from "../../demo/SvgTest";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "svg加载动画";
+---
+
+<Layout
+  title={pageTitle}
+  description="svg交互动态加载"
+  pubDate={new Date("2024-09-02")}
+>
+  <SvgDemo client:only="react" />
+</Layout>
