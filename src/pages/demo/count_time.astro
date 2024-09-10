@@ -1,0 +1,13 @@
+---
+import RecountTimeDemo from "../../demo/work/index";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "不受阻塞的倒计时组件";
+---
+
+<Layout
+  title={pageTitle}
+  description="使用worker实现倒计时组件"
+  pubDate={new Date("2024-09-10")}
+>
+  <RecountTimeDemo client:only="react" />
+</Layout>
