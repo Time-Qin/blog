@@ -1,0 +1,13 @@
+---
+import LoadingCarDemo from "../../demo/LoadingCar";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "动态线型汽车加载动画";
+---
+
+<Layout
+  title={pageTitle}
+  description="天马行空般的动态线型汽车加载动画"
+  pubDate={new Date("2024-09-13")}
+>
+  <LoadingCarDemo client:only="react" />
+</Layout>

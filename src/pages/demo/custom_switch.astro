@@ -1,0 +1,13 @@
+---
+import PlaneWindowDemo from "../../demo/PlaneWindow";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "飞机窗动画开关";
+---
+
+<Layout
+  title={pageTitle}
+  description="天马行空般的飞机窗动画开关"
+  pubDate={new Date("2024-09-14")}
+>
+  <PlaneWindowDemo client:only="react" />
+</Layout>
