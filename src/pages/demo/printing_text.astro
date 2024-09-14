@@ -1,0 +1,13 @@
+---
+import PrintingTextDemo from "../../demo/PrintingText";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "用js和css实现的文字编辑效果";
+---
+
+<Layout
+  title={pageTitle}
+  description="用js和css实现的文字编辑效果"
+  pubDate={new Date("2024-09-14")}
+>
+  <PrintingTextDemo client:only="react" />
+</Layout>
