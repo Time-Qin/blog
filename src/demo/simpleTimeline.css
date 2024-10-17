@@ -1,0 +1,79 @@
+.timeline .events {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    margin: 0.5em;
+}
+
+.timeline .events p {
+    margin: 0;
+}
+
+.timeline .events::before {
+    /* // We need some content for the element to show up. */
+    content: "";
+    /* // Use absolute positioning to place the timeline at the very top. */
+    position: absolute;
+    top: 0;
+    /* // With a height and with the timeline will be a tall and thin box. */
+    height: 100%;
+    width: 1px;
+    background: rgb(167, 100, 1);
+}
+
+.timeline .event {
+    display: flex;
+    align-items: baseline;
+}
+
+.timeline .event .marker {
+    position: relative;
+    left: -6px;
+    top: 0;
+}
+
+/* // Events use different classes to differentiate them. */
+.timeline .event.life .marker {
+    fill: yellow;
+}
+
+.timeline .event.programming .marker {
+    fill: magenta;
+}
+
+.timeline .event.family .marker {
+    fill: red;
+}
+
+/* // Make the time stand out */
+.timeline .content time {
+    font-family: concourse_4, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+@media (min-width: 700px) {
+    .timeline .events::before {
+        left: 50%;
+    }
+    .timeline .event .marker {
+        order: 1;
+    }
+    .timeline .event .content {
+        width: 50%;
+        text-align: right;
+        padding-inline: 1em;
+    }
+    .timeline .event:nth-child(even){
+        flex-direction: row-reverse;
+    }
+    .timeline .event:nth-child(even) .content{
+        text-align: left;
+    }
+    .timeline .event:nth-child(even) .marker{
+        left: 6px;
+    }
+    /* .timeline .event:is(.programming, .work, .projects) {
+        flex-direction: row-reverse;
+      } */
+}

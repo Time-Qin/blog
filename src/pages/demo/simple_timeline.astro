@@ -1,0 +1,13 @@
+---
+import SvgDemo from "../../demo/simpleTimeline";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "纵向时间轴";
+---
+
+<Layout
+  title={pageTitle}
+  description="flex实现时间轴布局"
+  pubDate={new Date("2024-10-17")}
+>
+  <SvgDemo client:only="react" />
+</Layout>
