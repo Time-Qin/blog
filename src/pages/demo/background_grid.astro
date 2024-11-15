@@ -1,0 +1,13 @@
+---
+import BackgroundGridDemo from "../../demo/BackgroundGrid";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "css实现网格背景";
+---
+
+<Layout
+  title={pageTitle}
+  description="纯css实现网格背景效果"
+  pubDate={new Date("2024-11-13")}
+>
+  <BackgroundGridDemo client:only="react" />
+</Layout>

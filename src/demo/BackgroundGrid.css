@@ -1,0 +1,101 @@
+.background-grid {
+}
+
+.background-grid .grid-solo {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-size: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23fff' /%3E%3Crect x='50%' width='1' height='100%' fill='rgb(203 213 225)' /%3E%3Crect y='50%' width='100%' height='1' fill='rgb(203 213 225)' /%3E%3C/svg%3E%0A");
+  background-size: cover;
+  border: 1px solid #1faef2;
+}
+.background-grid .grid-1 {
+  height: 160px;
+  background-size: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23fff' /%3E%3Crect x='50%' width='1' height='100%' fill='rgb(203 213 225)' /%3E%3Crect y='50%' width='100%' height='1' fill='rgb(203 213 225)' /%3E%3C/svg%3E%0A");
+  border: 1px solid #1faef2;
+}
+.background-grid .grid-2 {
+  height: 50px;
+  background-size: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23fff' /%3E%3Crect x='50%' width='1' height='100%' fill='rgb(203 213 225)' /%3E%3Crect y='50%' width='100%' height='1' fill='rgb(203 213 225)' /%3E%3C/svg%3E%0A");
+  border: 1px solid #1ff2ac;
+}
+.background-grid .grid-3 {
+  height: 50px;
+  background-size: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%23fff' /%3E%3Crect x='50%' width='1' height='100%' fill='rgb(203 213 225)' /%3E%3Crect y='50%' width='100%' height='1' fill='rgb(203 213 225)' /%3E%3C/svg%3E%0A");
+  border: 1px solid #1ff2ac;
+}
+.background-grid .grid-linear {
+  height: 160px;
+  background-size: 20px 20px;
+  background-position: center center;
+  background-image: linear-gradient(to right, gray 1px, transparent 1px),
+    linear-gradient(to bottom, gray 1px, transparent 1px);
+}
+.background-grid .grid-mask {
+  height: 160px;
+  background-size: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Crect width='30' height='30' fill='%23fff' /%3E%3Crect x='50%' width='1' height='100%' fill='rgb(203 213 225)' /%3E%3Crect y='50%' width='100%' height='1' fill='rgb(203 213 225)' /%3E%3C/svg%3E%0A");
+  -webkit-mask-image: radial-gradient(
+    ellipse 50% 50% at 50% 50%,
+    #000 70%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 50% 50% at 50% 50%,
+    #000 70%,
+    transparent 100%
+  );
+}
+.background-grid .grid-mask2 {
+  height: 160px;
+  background-size: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Crect width='30' height='30' fill='%23fff' /%3E%3Crect x='50%' width='1' height='100%' fill='rgb(203 213 225)' /%3E%3Crect y='50%' width='100%' height='1' fill='rgb(203 213 225)' /%3E%3C/svg%3E%0A");
+  -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      #fff 50px calc(100% - 50px),
+      transparent
+    ),
+    linear-gradient(
+      to right,
+      transparent,
+      #fff 50px calc(100% - 50px),
+      transparent
+    );
+  mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      #fff 50px calc(100% - 50px),
+      transparent
+    ),
+    linear-gradient(
+      to right,
+      transparent,
+      #fff 50px calc(100% - 50px),
+      transparent
+    );
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in, xor;
+}
+
+.background-grid .grid-circle {
+  height: 170px;
+  background-size: 20px 20px;
+  background-position: center center;
+  background-image: radial-gradient(circle, #1ff2ac 2px, #fff 2px);
+}
+
+.background-grid .grid-grid {
+  height: 200px;
+  width: 100%;
+  background-size: 20px 20px;
+  background-position: 0 0,0 10px,10px -10px,-10px 0;
+  background-image: linear-gradient(45deg, #1ff2ac 25%, transparent 0),
+    linear-gradient(-45deg, #1ff2ac 25%, transparent 0),
+    linear-gradient(45deg, transparent 75%, #1ff2ac 0),
+    linear-gradient(-45deg, transparent 75%, #1ff2ac 0);
+}
