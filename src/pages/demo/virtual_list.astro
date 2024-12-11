@@ -1,0 +1,13 @@
+---
+import VirtualListDemo from "../../demo/VirtualList.tsx";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "虚拟滚动";
+---
+
+<Layout
+  title={pageTitle}
+  description="使用 React 实现虚拟滚动"
+  pubDate={new Date("2024-12-02")}
+>
+  <VirtualListDemo client:only="react" />
+</Layout>
