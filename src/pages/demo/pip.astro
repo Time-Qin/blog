@@ -1,0 +1,13 @@
+---
+import PipDemo from "../../demo/Pip.tsx";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "浏览器画中画模式应用";
+---
+
+<Layout
+  title={pageTitle}
+  description="浏览器API Document Picture-in-Picture应用"
+  pubDate={new Date("2024-12-02")}
+>
+  <PipDemo client:only="react" />
+</Layout>

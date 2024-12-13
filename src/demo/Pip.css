@@ -1,0 +1,12 @@
+.box{
+    background: #6cc;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+}
+
+@media(display-mode: picture-in-picture){
+    .box{
+        background: #c6c;
+    }
+}
