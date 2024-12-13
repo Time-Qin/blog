@@ -1,0 +1,13 @@
+---
+import ComputedWindowSizeDemo from "../../demo/ComputedWindowSize.tsx";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "用css计算窗口大小";
+---
+
+<Layout
+  title={pageTitle}
+  description="使用css中的三角函数实现窗口大小的计算"
+  pubDate={new Date("2024-12-13")}
+>
+  <ComputedWindowSizeDemo client:only="react" />
+</Layout>

@@ -1,0 +1,43 @@
+/*定义自定义属性 --vw 表示视口宽度 初始值为100vw */
+@property --vw {
+  /* 定义--vw的值必须是一个长度值 */
+  syntax: "<length>";
+  /* 该属性会继承父元素 */
+  inherits: true;
+  /* 初始值为100vw */
+  initial-value: 100vw;
+}
+
+@property --vh {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 100vh;
+}
+
+/* 在 :root选择器中定义两个新的css变量 --w 和 --h 分别代表视口宽度和高度的计算值 */
+:root {
+  /* 使用 tan() 和 atan2() 函数 计算视口宽度（100vw）的切线值 */
+  --w: tan(atan2(var(--vw), 1px));
+  --h: tan(atan2(var(--vh), 1px));
+}
+
+.main {
+  width: 100%;
+  height: 40vh;
+}
+
+body::after {
+  /* 使用counter()函数 输出 --w 和 --h 的值 */
+  content: counter(w) "*" counter(h);
+  /* 使用counter-reset 初始化计数器 w 和 h  使用之前计算的 --w 和 --h 作为它们的值*/
+  counter-reset: w var(--w) h var(--h);
+  font-size: 60px;
+  font-weight: 800;
+  color: red;
+  position: fixed;
+  /* 定义改为元素占满整个屏幕 */
+  inset: 0;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}

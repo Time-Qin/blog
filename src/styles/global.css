@@ -17,6 +17,10 @@
 		0 16px 32px rgba(var(--gray), 33%);
 }
 
+::target-text{
+	background-color: yellowgreen;
+}
+
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
 ::-webkit-scrollbar {
 	width: 8px;
