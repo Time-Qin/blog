@@ -1,0 +1,13 @@
+---
+import CssInfiniteScrollDemo from "../../demo/CssInfiniteScroll";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "css旋转木马动画";
+---
+
+<Layout
+  title={pageTitle}
+  description="仅用 CSS 实现的无限滚动旋转木马动画"
+  pubDate={new Date("2025-01-21")}
+>
+  <CssInfiniteScrollDemo client:only="react" />
+</Layout>
