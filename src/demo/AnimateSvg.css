@@ -1,0 +1,22 @@
+.animate-svg{
+    width: 800px;
+    height: 600px;
+    background-color: #171717;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animate-svg .container{
+    width: 500px;
+    height: 500px;
+    background-color: rgb(16, 120, 120);
+    overflow: visible;
+    margin: auto;
+}
+
+.animate-svg .container line{
+    fill: none;
+    stroke: #f7f7f7;
+    stroke-width: 2;
+}

@@ -1,0 +1,13 @@
+---
+import AnimateSvgDemo from "../../demo/AnimateSvg";
+import Layout from "../../layouts/BlogPost.astro";
+const pageTitle = "svg磁力球交互效果";
+---
+
+<Layout
+  title={pageTitle}
+  description="svg磁力球交互效果"
+  pubDate={new Date("2025-03-22")}
+>
+  <AnimateSvgDemo client:only="react" />
+</Layout>
