@@ -1,0 +1,13 @@
+---
+import ExtractHtmlTsx from "../../tools/ExtractHtml.tsx"
+import Layout from "../../layouts/ToolPost.astro"
+const pageTitle = "提取html标签中的内容"
+---
+
+<Layout
+  title={pageTitle}
+  description="提取html标签中的内容"
+  pubDate={new Date("2025-06-03")}
+>
+  <ExtractHtmlTsx client:only></ExtractHtmlTsx>
+</Layout>

@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/ToolPost.astro"
+const pageTitle = "Tool Index"
+
+const toolList = [
+  {
+    index: 1,
+    title: "提取html标签中的内容",
+    href: "/tools/extract_html",
+    time: "2025-06-03",
+  },
+]
+---
+
+<Layout
+  title={pageTitle}
+  description="A collection of tools that I use on a daily basis."
+  pubDate={new Date("2025-06-03")}
+>
+  {
+    toolList.map((item) => (
+      <div class="flex items-center">
+        <span>{item.index}.</span>
+        <a href={item.href}>{item.title}</a>
+        <span class="ml-auto">{item.time}</span>
+      </div>
+    ))
+  }
+</Layout>
