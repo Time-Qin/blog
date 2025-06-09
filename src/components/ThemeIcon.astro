@@ -18,34 +18,72 @@
 </button>
 
 <style>
-@import url('../styles/ThemeIcon.css');
+  @import url("../styles/ThemeIcon.css");
 </style>
 <script is:inline>
-    const theme = (() => {
-      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-        return localStorage.getItem('theme');
-      }
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
-      }
-        return 'light';
-    })();
-  
-    if (theme === 'light') {
-      document.documentElement.classList.remove('dark');
+  let styleElement = document.createElement("style")
+  document.head.appendChild(styleElement)
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme")
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark"
+    }
+    return "light"
+  })()
+  const css = `::view-transition-group(root) {
+    animation-timing-function: var(--expo-out);
+}
+
+::view-transition-new(root) {
+    mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="white"/></svg>') 72% 8% / 0 no-repeat;
+    animation: scale 1s;
+}
+
+::view-transition-old(root),
+.dark::view-transition-old(root) {
+    animation: none;
+    z-index: -1;
+}
+
+@keyframes scale {
+    to {
+        mask-size: 800vmax;
+    }
+}`
+
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark")
+  } else {
+    document.documentElement.classList.add("dark")
+  }
+
+  window.localStorage.setItem("theme", theme)
+
+  const handleToggleClick = () => {
+    const element = document.documentElement
+    element.classList.toggle("dark")
+
+    const isDark = element.classList.contains("dark")
+    injectCSS(css)
+    localStorage.setItem("theme", isDark ? "dark" : "light")
+  }
+  const injectCSS = (css) => {
+    styleElement.textContent = css
+  }
+  const wrapperFn = () => {
+    if (!document.startViewTransition) {
+      handleToggleClick()
     } else {
-      document.documentElement.classList.add('dark');
+      new Promise((resolve) => {
+        document.startViewTransition(() => {
+          handleToggleClick()
+          resolve()
+        })
+      })
     }
-  
-    window.localStorage.setItem('theme', theme);
-  
-    const handleToggleClick = () => {
-      const element = document.documentElement;
-      element.classList.toggle("dark");
-  
-      const isDark = element.classList.contains("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    }
-  
-    document.getElementById("themeToggle").addEventListener("click", handleToggleClick);
-  </script>
+  }
+
+  document.getElementById("themeToggle").addEventListener("click", wrapperFn)
+</script>
