@@ -2,7 +2,7 @@
 title: 'HTML标签属性与DOM原型属性'
 description: 'HTML标签属性与DOM原型属性之间的区别(HTML attributes vs DOM properties)'
 pubDate: '2024-7-10'
-heroImage: 'https://picsum.photos/id/1/510/255.webp'
+heroImage: '/banner-img/1755164701.png'
 author: 'Ekko'
 tags: ["html", "js","web"]
 ---

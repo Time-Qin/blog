@@ -2,7 +2,7 @@
 title: "uni-app 导致h5中的echarts图tooltip功能失效问题"
 description: "uni-app框架（vue3）中使用echarts库的一次踩坑记录"
 pubDate: "2024-9-06"
-heroImage: "https://picsum.photos/id/10/510/255.webp"
+heroImage: "/banner-img/1755164053.png"
 author: "Ekko"
 tags: ["h5", "js", "uniapp", "echarts"]
 ---

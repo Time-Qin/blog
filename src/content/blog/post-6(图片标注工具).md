@@ -2,7 +2,7 @@
 title: "前端实现图片标注工具"
 description: "本文是记录前端使用canvas实现图片标注功能"
 pubDate: "2024-8-09"
-heroImage: "https://picsum.photos/id/7/510/255.webp"
+heroImage: "/banner-img/1755164318.png"
 author: "Ekko"
 tags: ["web", "js", "canvas", "react", "typescript"]
 ---

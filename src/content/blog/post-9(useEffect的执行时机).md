@@ -1,8 +1,8 @@
 ---
-title: "uesEffec执行时机——你不知道的细节"
-description: "uesEffec在运行时有自己的更新策略"
+title: "uesEffect执行时机——你不知道的细节"
+description: "uesEffect在运行时有自己的更新策略"
 pubDate: "2024-10-09"
-heroImage: "https://picsum.photos/id/11/510/255.webp"
+heroImage: "/banner-img/1755163410.png"
 author: "Ekko"
 tags: ["web", "react", "hooks"]
 ---

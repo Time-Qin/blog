@@ -2,7 +2,7 @@
 title: "Docker学习记录"
 description: "使用ChatGPT5来学习Docker"
 pubDate: "2025-8-13"
-heroImage: "https://picsum.photos/id/1/512/255.webp"
+heroImage: "/banner-img/1755163182.png"
 author: "Ekko"
 tags: ["html", "js", "web", "mysql", "docker", "node"]
 ---

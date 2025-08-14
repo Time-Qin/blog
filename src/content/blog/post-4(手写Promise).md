@@ -2,7 +2,7 @@
 title: '手写Promise满足A+规范（class写法）'
 description: '本文介绍了Promise的实现原理及如何实现一个符合A+规范的Promise'
 pubDate: '2024-7-22'
-heroImage: 'https://picsum.photos/id/4/510/255.webp'
+heroImage: '/banner-img/1755164491.png'
 author: 'Ekko'
 tags: ["web", "js",'promise','test']
 ---

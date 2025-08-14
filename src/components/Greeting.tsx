@@ -11,7 +11,7 @@ export default function Greeting({ messages }: GreetingProps) {
 
   return (
     <div>
-      <h3>{greeting}! Thank you for visiting!</h3>
+      <h3>{greeting}! 我是艾克🧑，一名前端开发工程师。</h3>
       <button onClick={() => setGreeting(randomMessage())}>New Greeting</button>
     </div>
   );

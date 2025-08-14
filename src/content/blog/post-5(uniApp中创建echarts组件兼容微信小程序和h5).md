@@ -2,7 +2,7 @@
 title: "在uniApp中支持h5和微信小程序的echarts组件"
 description: "本文是记录在uniApp中使用echarts时为解决组件兼容问题而编写的扩展组件"
 pubDate: "2024-8-01"
-heroImage: "https://picsum.photos/id/6/510/255.webp"
+heroImage: "/banner-img/1755164053.png"
 author: "Ekko"
 tags: ["web", "js", "miniprogram", "vue", "echarts"]
 ---

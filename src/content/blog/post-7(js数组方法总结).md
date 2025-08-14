@@ -2,7 +2,7 @@
 title: "js数组方法详细介绍"
 description: "本文是记录前端使用js数组方法详细介绍"
 pubDate: "2024-8-20"
-heroImage: "https://picsum.photos/id/8/510/255.webp"
+heroImage: "/banner-img/1755164223.png"
 author: "Ekko"
 tags: ["web", "js","array"]
 ---

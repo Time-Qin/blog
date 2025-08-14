@@ -2,7 +2,7 @@
 title: '关于移动端h5页面唤醒键盘时导致布局错乱的解决方案'
 description: '本文介绍了移动端h5页面唤醒键盘时导致布局错乱的解决方案'
 pubDate: '2024-7-12'
-heroImage: 'https://picsum.photos/id/3/510/255.webp'
+heroImage: '/banner-img/1755164570.png'
 author: 'Ekko'
 tags: ["web", "ts",'h5']
 ---

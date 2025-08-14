@@ -2,7 +2,7 @@
 title: '小程序自定义Tabbar组件实现及注意事项'
 description: '本文介绍了小程序自定义tabbar组件的实现及注意事项'
 pubDate: '2024-7-11'
-heroImage: 'https://picsum.photos/id/2/510/255.webp'
+heroImage: '/banner-img/1755164628.png'
 author: 'Ekko'
 tags: ["wxml", "ts",'miniprogram','scss']
 ---

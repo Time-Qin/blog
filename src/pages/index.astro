@@ -1,55 +1,50 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Greeting from '../components/Greeting';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import '../styles/global.css';
+import BaseHead from "../components/BaseHead.astro"
+import Header from "../components/Header.astro"
+// import Footer from '../components/Footer.astro';
+import Greeting from "../components/Greeting"
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"
+import EEKO_HAPPY from "../../public/banner-img/1755164858.png"
+import EEKO_WORRIED from "../../public/banner-img/1755164918.png"
+import "../styles/global.css"
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			.block{
-				position: relative;
-				margin:100px auto;
-				width:224px;
-				height:224px;
-
-			}
-			img{
-				position:absolute;
-				left:0;
-				top:0;
-				transition:all 1s;
-			}
-			.block img:first-child{
-				z-index:1;
-				backface-visibility:hidden;
-			}
-			.block:hover img{
-				transform:rotateY(180deg);
-			}
-
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 来自小莫写的一个blog网站</h1>
-			<Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]}/>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<div class="block">
-				<img width="200" height="200" src="https://picsum.photos/200/200" alt="正面">
-				<img width="200" height="200" src="https://picsum.photos/300/300" alt="反面">
-			</div>
-		</main>
-		<!-- <Footer /> -->
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      .block {
+        position: relative;
+        margin: 100px auto;
+        width: 224px;
+        height: 224px;
+      }
+      img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: all 1s;
+      }
+      .block img:first-child {
+        z-index: 1;
+        backface-visibility: hidden;
+      }
+      .block:hover img {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>艾克的博客</h1>
+      <Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]} />
+      <div class="block">
+        <img width="200" height="200" src={EEKO_HAPPY.src} alt="正面" />
+        <img width="200" height="200" src={EEKO_WORRIED.src} alt="反面" />
+      </div>
+    </main>
+    <!-- <Footer /> -->
+  </body>
 </html>
