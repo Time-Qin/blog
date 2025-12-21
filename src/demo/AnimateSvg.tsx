@@ -16,6 +16,10 @@ const AnimateSvg = () => {
             height = rect.height
             left = rect.left
             top = rect.top
+            if (rect.width < 450) {
+                lines = 5;
+                rows = 5
+            }
         }
     }
 
@@ -95,10 +99,20 @@ const AnimateSvg = () => {
 
     const init = () => {
         resize()
-        createBround(20)
-        document.addEventListener("mousemove", (e) => {
-            moveBalls(e.x, e.y)
-        })
+        createBround(width < 450 ? 20 : 20)
+        if (navigator.userAgent.includes('Mobile')) {
+            document.addEventListener("touchmove", (e) => {
+                const x = e.changedTouches[0].screenX
+                const y = e.changedTouches[0].screenY
+                moveBalls(x, y)
+            })
+
+        } else {
+            document.addEventListener("mousemove", (e) => {
+                moveBalls(e.x, e.y)
+            })
+
+        }
     }
 
     useEffect(() => {
