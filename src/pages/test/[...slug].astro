@@ -1,0 +1,48 @@
+---
+import "../../styles/global.css";
+import TestContent from "../../components/test/TestContent.tsx";
+
+export async function getStaticPaths() {
+    const posts = [
+        {
+            title: "病理学测试",
+            id: "example-1",
+            slug: "example-1",
+        },
+        {
+            title: "方剂学测试",
+            id: "example-2",
+            slug: "example-2",
+        },
+        {
+            title: "中药学测试",
+            id: "example-3",
+            slug: "example-3",
+        },
+    ];
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: post,
+    }));
+}
+const { title, id } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <style>
+            main {
+                padding: 10px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <TestContent id={id} client:only="react" />
+        </main>
+    </body>
+</html>
