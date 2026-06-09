@@ -23,5 +23,17 @@ export const TEST_LIST = [
         link: "/example-3",
         date: "2025-12-21",
     },
+    {
+        title: "中医外科测试",
+        description: "测试页面4",
+        link: "/example-4",
+        date: "2026-06-09",
+    },
+    {
+        title: "中医内科测试",
+        description: "测试页面5",
+        link: "/example-5",
+        date: "2026-06-09",
+    },
 ];
 

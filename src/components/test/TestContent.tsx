@@ -2,6 +2,8 @@ import { useState } from 'react';
 import zhonyaoxue from '../../assets/json/zhonyaoxue.json';
 import fangjixue from '../../assets/json/fangjixue.json';
 import binglixue from '../../assets/json/binglixue.json';
+import zhongyiwai from '../../assets/json/zhongyiwai.json'
+import zhongyinei from '../../assets/json/zhongyinei.json'
 import { AUTHOR } from '../../consts';
 type Question = {
     id: number;
@@ -24,7 +26,7 @@ type Answer = {
 };
 
 interface TestContentProps {
-    id: 'example-1' | 'example-2' | 'example-3' | string;
+    id: 'example-1' | 'example-2' | 'example-3' | 'example-4' | 'example-5' | string;
 }
 
 const TestContent = ({ id }: TestContentProps) => {
@@ -44,6 +46,8 @@ const TestContent = ({ id }: TestContentProps) => {
         "example-1": binglixue,
         "example-2": fangjixue,
         "example-3": zhonyaoxue,
+        "example-4": zhongyiwai,
+        "example-5": zhongyinei,
     };
 
     const data = option[id] || binglixue;
