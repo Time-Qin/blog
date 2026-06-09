@@ -1,4 +1,4 @@
-let interval:NodeJS.Timer
+let interval: ReturnType<typeof setInterval>;
 
 self.onmessage = function(event){
     const { command, timeInSeconds } = event.data;
